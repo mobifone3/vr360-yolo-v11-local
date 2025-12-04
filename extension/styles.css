@@ -1,0 +1,51 @@
+/**
+ * VR 360 Object Detector - Bounding Box Styles
+ */
+
+/* Base bounding box container */
+.vr-auto-polygon-box {
+  transition: box-shadow 0.2s ease;
+}
+
+.vr-auto-polygon-box:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Resize handles */
+.resize-handle {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.vr-auto-polygon-box:hover .resize-handle {
+  opacity: 1;
+}
+
+.resize-handle:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Control buttons */
+.bbox-controls {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vr-auto-polygon-box:hover .bbox-controls {
+  opacity: 1;
+}
+
+.control-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* Label styles */
+.vr-auto-polygon-box > div[style*="top: -24px"] {
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* Smooth cursor transitions */
+.vr-auto-polygon-box {
+  transition: cursor 0.1s ease;
+}

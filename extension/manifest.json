@@ -1,0 +1,87 @@
+{
+  "manifest_version": 3,
+  "name": "VR 360 Object Detector",
+  "version": "1.2",
+  "description": "Detects objects using YOLOv12, TensorFlow.js, or Cloud APIs and automates polygon creation.",
+  "icons": {
+    "16": "icons/Icon-App-20x20@1x.png",
+    "32": "icons/Icon-App-20x20@2x.png",
+    "48": "icons/Icon-App-40x40@3x.png",
+    "128": "icons/Icon-App-76x76@2x.png"
+  },
+  "permissions": ["activeTab", "storage", "tabs", "webRequest", "cookies"],
+  "host_permissions": [
+    "https://vision.googleapis.com/*",
+    "http://127.0.0.1:5000/*",
+    "http://localhost:5000/*",
+    "https://*.ngrok-free.app/*",
+    "https://*.ngrok.io/*",
+    "https://*.ngrok-free.dev/*",
+    "https://smarttravel-vr.mobifone.vn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://smarttravel-vr.mobifone.vn/*"],
+      "css": ["styles.css"],
+      "js": [
+        "api/yolo.js",
+        "api/roboflow.js",
+        "api/google-vision.js",
+        "api/aws-rekognition.js",
+        "api/tensorflow.js",
+        "helpers/element-finder.js",
+        "helpers/url-cleaner.js",
+        "helpers/coord/ui-extractor.js",
+        "helpers/coord/projection-math.js",
+        "helpers/coord/screen-to-sphere.js",
+        "helpers/coord/sphere-to-screen.js",
+        "helpers/coord/url-utils.js",
+        "helpers/coordinate-converter.js",
+        "helpers/bbox-to-polygon.js",
+        "helpers/scene-polygons.js",
+        "api-vr360/polygon-api.js",
+        "api-vr360/polygon-type-change.js",
+        "core/chrome-api.js",
+        "core/element-finder.js",
+        "core/krpano-injector.js",
+        "core/canvas-capture.js",
+        "core/scene-capture.js",
+        "core/scene-orchestrator.js",
+        "core/detection-handlers.js",
+        "core/bbox-drag.js",
+        "core/bbox-resize.js",
+        "core/controls/ui-components.js",
+        "core/controls/box-duplicator.js",
+        "core/controls/label-factory.js",
+        "core/bbox-draw.js",
+        "core/bbox-list/constants.js",
+        "core/bbox-list/styles.js",
+        "core/bbox-list/draggable.js",
+        "core/bbox-list/highlighting.js",
+        "core/bbox-list/card-actions.js",
+        "core/bbox-list/bulk-actions.js",
+        "core/bbox-list/card-ui.js",
+        "core/bbox-list/panel-ui.js",
+        "core/bbox-list/index.js",
+        "core/ui-display.js",
+        "core/undo-redo.js",
+        "core/drawing/drawing-utils.js",
+        "core/drawing/free-draw.js",
+        "core/drawing/point-polygon.js",
+        "core/drawing/rectangle-draw.js",
+        "core/drawing/circle-draw.js",
+        "core/toolbar/toolbar-buttons.js",
+        "core/toolbar/legacy-list.js",
+        "core/toolbar/toolbar-ui.js",
+        "core/keyboard-shortcuts.js",
+        "content-new.js"
+      ]
+    }
+  ]
+}
